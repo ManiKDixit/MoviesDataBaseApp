@@ -1,11 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using MoviesDatabase.Data;
 using MoviesDataBaseApp.Data;
+using MoviesDataBaseApp.Helpers;
+using MoviesDataBaseApp.Interfaces;
+using MoviesDataBaseApp.Repository;
+using MoviesDataBaseApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IMovieRepository,MovieRepository>();
+builder.Services.AddScoped<IPhotoService, PhotoService>();
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings")); // There is where that IOption thing happens
+
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

@@ -1,0 +1,88 @@
+﻿@using MoviesDataBaseApp.Data;
+@using MoviesDataBaseApp.ViewModels;
+@model AddMovieViewModel;
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name">Movie Name</label>
+        <input asp-for="Name" class="form-control" placeholder="Movie Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Description</label>
+        <input asp-for="Description" class="form-control" placeholder="Description">
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Genre.GenreName">Movie Genre</label>
+        <input asp-for="Genre.GenreName" class="form-control" placeholder="Genre">
+        <span asp-validation-for="Genre.GenreName" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Director.Name">Movie Director</label>
+        <input asp-for="Director.Name" class="form-control" placeholder="Movie Director">
+        <span asp-validation-for="Director.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Director.Age">Director Age</label>
+        <input asp-for="Director.Age" class="form-control" placeholder="Director Age">
+        <span asp-validation-for="Director.Age" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Studios.StudioName">Movie Studios</label>
+        <input asp-for="Studios.StudioName" class="form-control" placeholder="Movie Studios">
+        <span asp-validation-for="Studios.StudioName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Studios.CEO">Studio CEO</label>
+        <input asp-for="Studios.CEO" class="form-control" placeholder="Studio CEO">
+        <span asp-validation-for="Studios.CEO" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Language">Movie Langugae</label>
+        <input asp-for="Language" class="form-control" placeholder="Language">
+        <span asp-validation-for="Language" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Award.AwardName">Award Name</label>
+        <input asp-for="Award.AwardName" class="form-control" placeholder="Award Name">
+        <span asp-validation-for="Award.AwardName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Award.AwardDate">Date of the Award</label>
+        <input asp-for="Award.AwardDate" class="form-control" placeholder="Award Date">
+        <span asp-validation-for="Award.AwardDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ReleaseDate">Release Date</label>
+        <input asp-for="ReleaseDate" class="form-control" placeholder="Release Date">
+        <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+    </div>
+
+
+
+    <div class="form-group">
+        <label asp-for="Image">Image</label>
+        <input asp-for="Image" type="file" class="form-control" placeholder="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
