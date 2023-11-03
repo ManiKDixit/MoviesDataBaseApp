@@ -8,6 +8,9 @@ namespace MoviesDataBaseApp.Models
         [Key]
         public int Id { get; set; }
 
+        //[Key]
+        //public string Id { get; set; }
+
         public string Name { get; set; }
 
         [ForeignKey("Genre")]
@@ -37,5 +40,8 @@ namespace MoviesDataBaseApp.Models
 
         public string? Description { get; set; }
 
+        [ForeignKey("AppUser")]
+        public string? AppUserId { get; set; }
+        public AppUser? AppUser { get; set; }
     }
 }

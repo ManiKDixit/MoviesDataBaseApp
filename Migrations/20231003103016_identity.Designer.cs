@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MoviesDatabase.Data;
 
@@ -11,9 +12,11 @@ using MoviesDatabase.Data;
 namespace MoviesDataBaseApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231003103016_identity")]
+    partial class identity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -200,9 +203,6 @@ namespace MoviesDataBaseApp.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("ProfileImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -294,9 +294,6 @@ namespace MoviesDataBaseApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int?>("AwardId")
                         .HasColumnType("int");
 
@@ -331,8 +328,6 @@ namespace MoviesDataBaseApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
-
                     b.HasIndex("AwardId");
 
                     b.HasIndex("DirectorId");
@@ -353,6 +348,7 @@ namespace MoviesDataBaseApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CEO")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StudioName")
@@ -417,10 +413,6 @@ namespace MoviesDataBaseApp.Migrations
 
             modelBuilder.Entity("MoviesDataBaseApp.Models.Movie", b =>
                 {
-                    b.HasOne("MoviesDataBaseApp.Models.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId");
-
                     b.HasOne("MoviesDataBaseApp.Models.Award", "Award")
                         .WithMany()
                         .HasForeignKey("AwardId");
@@ -442,8 +434,6 @@ namespace MoviesDataBaseApp.Migrations
                         .HasForeignKey("StudiosId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("AppUser");
 
                     b.Navigation("Award");
 

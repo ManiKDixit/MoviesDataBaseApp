@@ -9,6 +9,6 @@ namespace MoviesDataBaseApp.Models
 
         public string StudioName { get; set; }
 
-        public string CEO { get; set; }
+        public string? CEO { get; set; }
     }
 }

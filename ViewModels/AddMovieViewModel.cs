@@ -26,6 +26,8 @@ namespace MoviesDataBaseApp.ViewModels
         public DateTime ReleaseDate { get; set; }
 
         public string? Description { get; set; }
+
+        public string? AppUserId { get; set; }
     }
 }
 

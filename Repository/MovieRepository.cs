@@ -33,20 +33,40 @@ namespace MoviesDataBaseApp.Repository
             
         }
 
-        public async Task<Movie> GetByIdAsync(int id)
-        {
-            return await _context.Movies.Include(director => director.Director)
-            .Include(genre => genre.Genre)
-            .Include(award => award.Award)
-            .Include(studios => studios.Studios).FirstOrDefaultAsync(i => i.Id == id);
-                   }
+        //public async Task<Movie> GetByIdAsync(int id)
+        //{
+        //    return await _context.Movies.Include(director => director.Director)
+        //    .Include(genre => genre.Genre)
+        //    .Include(award => award.Award)
+        //    .Include(studios => studios.Studios).FirstOrDefaultAsync(i => i.Id == id);
+        // }
 
-        public async Task<Movie> GetByIdAsyncNoTracking(int id)
+
+        public async Task<Movie> GetByIdAsync(int id , string appid )
         {
-            return await _context.Movies.Include(director => director.Director)
+           var movie = await _context.Movies.Where(r => r.Id == id).Include(director => director.Director)
+             .Include(genre => genre.Genre)
+             .Include(award => award.Award)
+             .Include(studios => studios.Studios).FirstOrDefaultAsync((i => i.AppUserId == appid)); 
+
+            return movie;
+        }
+
+        //public async Task<Movie> GetByIdAsyncNoTracking(int id)
+        //{
+        //    return await _context.Movies.Include(director => director.Director)
+        //    .Include(genre => genre.Genre)
+        //    .Include(award => award.Award)
+        //    .Include(studios => studios.Studios).AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
+        //}
+
+        public async Task<Movie> GetByIdAsyncNoTracking(int id ,string appid)
+        {
+           var movie =   await _context.Movies.Where(r => r.Id == id).Include(director => director.Director)
             .Include(genre => genre.Genre)
             .Include(award => award.Award)
-            .Include(studios => studios.Studios).AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
+            .Include(studios => studios.Studios).AsNoTracking().FirstOrDefaultAsync((i => i.AppUserId == appid));
+            return movie;
         }
 
         public Task<IEnumerable<Movie>> GetMovieByGenre(string genre)

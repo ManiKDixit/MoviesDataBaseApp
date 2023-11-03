@@ -1,0 +1,145 @@
+﻿@using MoviesDataBaseApp.ViewModels
+@model UserDetailViewModel
+
+
+<div class="main-container">
+    <nav aria-label="breadcrumb" role="navigation" class="text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#">Movie Buffs</a>
+                        </li>
+
+                        <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                    </ol>
+                </div>
+                <!--end of col-->
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </nav>
+   
+    <!--end of section-->
+  
+    <section class="flush-with-above">
+        <div class="tab-content">
+            <div class="tab-pane fade active show" id="races" role="tabpanel" aria-labelledby="races-tab">
+                <div class="container">
+                    <ul class="row feature-list feature-list-sm">
+
+                        <li class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <a href="#">
+                                    <img class="card-img-top" src="@Model.ProfileImageUrl" alt="Card image cap">
+                                </a>
+                                <div class="card-body">
+                                    <a href="#">
+                                        <h4 class="card-title">@Model.UserName</h4>
+                                        <p class="card-text text-body">WatchList : @Model.WatchList</p>
+                                        <p class="card-text text-body">Favorites :  @Model.Favorites</p>
+                                    </a>
+                                </div>
+                                @* <div class="card-footer card-footer-borderless d-flex justify-content-between">
+                                    <div class="text-small">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item"><i class="icon-heart mr-1"></i> 373</li>
+                                            <li class="list-inline-item"><i class="icon-message mr-1"></i> 62</li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropup">
+                                        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="BenchButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon-dots-three-horizontal"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="BenchButton">
+                                            <a class="dropdown-item" href="#">Save</a>
+                                            <a class="dropdown-item" href="#">Share</a>
+                                            <a class="dropdown-item" href="#">Comment</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Report</a>
+                                        </div>
+                                    </div>
+                                </div> *@
+                            </div>
+                        </li>
+                        <!--end of col-->
+
+                      
+                        <!--end of col-->
+
+                      
+                        <!--end of col-->
+
+                      
+                        <!--end of col-->
+
+                      
+                        <!--end of col-->
+
+                       
+                        <!--end of col-->
+
+                    </ul>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </div>
+
+          
+           
+
+        </div>
+    </section>
+    <!--end of section-->
+    <footer class="footer-short">
+        <div class="container">
+            <hr>
+            <nav class="row justify-content-between align-items-center">
+                <div class="col-auto">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <img alt="Image" src="/img/logo-gray.svg">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Overview</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Documentation</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Changelog</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--end of col-->
+                <div class="col-auto text-sm-right">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#"><i class="socicon-twitter"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="socicon-facebook"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <!--end of col-->
+            </nav>
+            <!--end of row-->
+            <div class="row">
+                <div class="col">
+                    <small>© 2019 Medium Rare All Rights Reserved</small>
+                </div>
+                <!--end of col-->
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </footer>
+</div>

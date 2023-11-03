@@ -1,0 +1,34 @@
+﻿@using MoviesDataBaseApp.ViewModels
+@model EditUserDashboardViewModel
+
+
+<form method="post" asp-action="EditUserProfile" enctype="multipart/form-data">
+    <input type="hidden" id="Id" name="Id" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="UserName">Name</label>
+        <input asp-for="UserName" class="form-control" placeholder="UserName">
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="WatchList">Your WatchList</label>
+        <input asp-for="WatchList" class="form-control" placeholder="WatchList">
+        <span asp-validation-for="WatchList" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Favorites">Your Favorites</label>
+        <input asp-for="Favorites" class="form-control" placeholder="Favorites">
+        <span asp-validation-for="Favorites" class="text-danger"></span>
+    </div>
+
+   
+    <div class="form-group">
+        <label asp-for="Image"> Profile Image</label>
+        <input asp-for="Image" type="file" class="form-control" placeholder="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
