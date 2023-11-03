@@ -237,7 +237,28 @@ namespace MoviesDataBaseApp.Controllers
             return RedirectToAction("Index");
         }
 
+        public async Task<IActionResult> Delete(int id)
+        {
+            var curUserId = _httpContextAccessor.HttpContext.User.GetUserId();
+            string appid = curUserId;
+            var movieDetails = await _movieRepository.GetByIdAsync(id, appid);
+            if (movieDetails == null) return View("Error");
+            return View(movieDetails);
 
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteMovie(int id)
+        {
+            var curUserId = _httpContextAccessor.HttpContext.User.GetUserId();
+            string appid = curUserId;
+            var movieDetails = await _movieRepository.GetByIdAsync(id, appid);
+            if (movieDetails == null) return View("Error");
+
+            _movieRepository.Delete(movieDetails);
+            return RedirectToAction("Index");
+
+        }
 
         //[HttpPost]
         //public async Task<IActionResult> Edit(int id, EditMovieViewModel movieVM)

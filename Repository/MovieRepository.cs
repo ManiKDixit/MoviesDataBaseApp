@@ -24,7 +24,8 @@ namespace MoviesDataBaseApp.Repository
 
         public bool Delete(Movie movie)
         {
-            throw new NotImplementedException();
+            _context.Remove(movie);
+            return Save();
         }
 
         public async Task<IEnumerable<Movie>> GetAll()
